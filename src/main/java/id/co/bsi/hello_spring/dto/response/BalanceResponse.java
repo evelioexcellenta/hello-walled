@@ -3,7 +3,7 @@ package id.co.bsi.hello_spring.dto.response;
 import lombok.Data;
 
 @Data
-public class RegisterResponse {
-    private String status;
+public class BalanceResponse {
+    private Integer balance;
     private String message;
 }

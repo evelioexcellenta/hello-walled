@@ -24,6 +24,8 @@ public class AuthController {
     @PostMapping("/api/register")
     public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest registerRequest) {
         RegisterResponse registerResponse = new RegisterResponse();
+        registerResponse.setStatus("success");
+        registerResponse.setMessage("Account Created");
 
         return ResponseEntity.ok(registerResponse);
     }
