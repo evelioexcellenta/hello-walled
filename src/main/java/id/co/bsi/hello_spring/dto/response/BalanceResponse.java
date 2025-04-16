@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class BalanceResponse {
     private Integer balance;
-    private String message;
+    private String status;
 }

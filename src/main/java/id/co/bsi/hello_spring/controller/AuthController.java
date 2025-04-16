@@ -18,7 +18,7 @@ public class AuthController {
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setStatus("success");
-        loginResponse.setToken("wfweoi3hoihewihfero");
+        loginResponse.setToken("absdsadsfbgdfdas");
 
         return ResponseEntity.ok(loginResponse);
     }
@@ -36,7 +36,6 @@ public class AuthController {
     public ResponseEntity<LogoutResponse> logout(@RequestBody LogoutRequest request) {
         LogoutResponse response = new LogoutResponse();
 
-        // Cek token, hardcoded
         if ("absdsadsfbgdfdas".equals(request.getToken())) {
             response.setStatus("success");
             response.setMessage("Logout successful");

@@ -1,22 +1,31 @@
 package id.co.bsi.hello_spring.controller;
 
 import id.co.bsi.hello_spring.dto.response.BalanceResponse;
-import lombok.Data;
+import id.co.bsi.hello_spring.dto.response.ErrorResponse;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BalanceController {
-    @GetMapping("/api/balance")
-    public ResponseEntity<BalanceResponse> getBalance(
-    ){
-        BalanceResponse balanceResponse = new BalanceResponse();
-        balanceResponse.setBalance(1000000);
-        balanceResponse.setMessage("Your balance is 1.000.000");
 
-        return ResponseEntity.ok(balanceResponse);
+    @GetMapping("/api/balances")
+    public ResponseEntity<?> getBalance(@RequestParam("token") String token) {
+        if (!"absdsadsfbgdfdas".equals(token)) {
+            return new ResponseEntity<>(
+                    new ErrorResponse("failed", "Unable Fetch Balance"),
+                    HttpStatus.UNAUTHORIZED
+            );
+        }
+//        public ResponseEntity<BalanceResponse> getBalance(){
+        BalanceResponse response = new BalanceResponse();
+        response.setStatus("success");
+        response.setBalance(100000);
+
+        return ResponseEntity.ok(response);
     }
 }
