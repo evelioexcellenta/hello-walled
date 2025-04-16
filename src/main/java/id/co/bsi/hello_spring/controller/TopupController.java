@@ -15,7 +15,7 @@ public class TopupController {
     public ResponseEntity<TopupResponse> Topup(@RequestBody TopupRequest TopupRequest) {
         TopupResponse topupResponse = new TopupResponse();
         topupResponse.setStatus("Success");
-        topupResponse.setMessage("Top up from Credit Card");
+        topupResponse.setMessage("Top up from " + TopupRequest.getFrom() );
 
         return ResponseEntity.ok(topupResponse);
     }
